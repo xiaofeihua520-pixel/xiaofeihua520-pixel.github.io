@@ -51,6 +51,24 @@
         .glow-1 { top: -100px; left: -100px; width: 500px; height: 500px; background: var(--p-pink); }
         .glow-2 { bottom: -100px; right: -100px; width: 500px; height: 500px; background: var(--p-mint); }
 
+        /* Efek Partikel Pixel Bunga Digital */
+        .digital-petal {
+            position: fixed;
+            top: -20px;
+            pointer-events: none;
+            z-index: 0;
+            font-size: 16px;
+            animation: digitalFall linear infinite;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.8));
+        }
+
+        @keyframes digitalFall {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(105vh) rotate(180deg) scale(1.1); opacity: 0; }
+        }
+        
         /* Container Utama */
         .terminal-container {
             width: 100%;
