@@ -267,17 +267,31 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-[#FAF7F2] text-gray-700 font-sans antialiased relative flex justify-center items-center min-height-100vh m-0 overflow-x-hidden">
 
-    <!-- Lingkaran Gradasi Glow di Background -->
-    <div class="bg-glow-1"></div>
-    <div class="bg-glow-2"></div>
+    <!-- Lingkaran Gradasi Glow Latar Belakang yang Diperluas -->
+    <div class="bg-glow-1" style="top: 10%; left: 5%; width: 400px; height: 400px;"></div>
+    <div class="bg-glow-2" style="bottom: 10%; right: 5%; width: 400px; height: 400px;"></div>
+    <div class="bg-glow-1" style="bottom: 20%; left: -100px; width: 300px; height: 300px; background: #e8dbff; opacity: 0.3;"></div>
+
+    <!-- Elemen Dekorasi Teks Samping (Side Text Elements) -->
+    <div class="hidden lg:flex fixed left-8 top-1/2 transform -translate-y-1/2 flex-col gap-24 items-center z-0 pointer-events-none opacity-40 select-none" style="font-family: 'Space Grotesk', sans-serif;">
+        <p class="transform -rotate-90 origin-center text-xs tracking-[6px] font-bold uppercase text-[#9c82a6] whitespace-nowrap">🌸 FINANCIAL PLANNER</p>
+        <div class="h-16 w-[1px] bg-gradient-to-b from-[#9c82a6] to-transparent"></div>
+        <p class="transform -rotate-90 origin-center text-xs tracking-[4px] font-semibold text-[#615263] whitespace-nowrap">EST. 2026</p>
+    </div>
+
+    <div class="hidden lg:flex fixed right-8 top-1/2 transform -translate-y-1/2 flex-col gap-24 items-center z-0 pointer-events-none opacity-40 select-none" style="font-family: 'Space Grotesk', sans-serif;">
+        <p class="transform rotate-90 origin-center text-xs tracking-[6px] font-bold uppercase text-[#9c82a6] whitespace-nowrap">AMBIL KENDALI UANGMU ✦</p>
+        <div class="h-16 w-[1px] bg-gradient-to-b from-[#9c82a6] to-transparent"></div>
+        <p class="transform rotate-90 origin-center text-xs tracking-[4px] font-semibold text-[#615263] whitespace-nowrap">DIGITAL HUB</p>
+    </div>
 
     <!-- Wadah Efek Kelopak Bunga Digital -->
     <div id="digital-petal-container"></div>
 
     <!-- Main Profile Card -->
-    <div class="profile-card">
+    <div class="profile-card my-8">
         <div class="tech-badge">🌸</div>
         <h1>Tristiana Dewi</h1>
         <div class="subtitle">Digital Financial Planner</div>
@@ -286,7 +300,18 @@
             Mari ubah kebiasaan finansialmu menjadi lebih sehat, teratur, dan bebas stres tanpa harus mengorbankan kebahagiaan hari ini.
         </p>
 
-                <!-- Tombol Aksi & Media Sosial -->
+        <!-- Section Layanan Berbentuk Grid Digital -->
+        <div class="section">
+            <h3><i class="fa-solid fa-layer-group text-pink-400"></i> Fokus Layanan</h3>
+            <div class="service-grid">
+                <div class="service-tag"><span>🩺</span> Cashflow</div>
+                <div class="service-tag"><span>🕊️</span> Bebas Utang</div>
+                <div class="service-tag"><span>🌼</span> Investasi</div>
+                <div class="service-tag"><span>🎯</span> Dana Pensiun</div>
+            </div>
+        </div>
+
+        <!-- Tombol Aksi & Media Sosial -->
         <div class="social-links">
             <a href="https://wa.me." target="_blank" class="social-btn cta-main">
                 <div class="btn-left">
