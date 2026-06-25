@@ -374,6 +374,53 @@
 
     </div>
 
+    <!-- Wadah Efek Kelopak Bunga -->
+    <div id="terminal-petal-container"></div>
+
+    <!-- Gaya CSS Tambahan untuk Animasi Kelopak Bunga Gugur -->
+    <style>
+        .terminal-petal {
+            position: fixed;
+            top: -20px;
+            pointer-events: none;
+            z-index: 1;
+            font-size: 14px;
+            animation: terminalFall linear infinite;
+            filter: drop-shadow(0 0 4px rgba(255, 183, 221, 0.4));
+        }
+
+        @keyframes terminalFall {
+            0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(105vh) rotate(360deg) translateX(40px); opacity: 0; }
+        }
+    </style>
+
+    <!-- Script Logika Kelopak Bunga Gugur -->
+    <script>
+        const petalBox = document.getElementById('terminal-petal-container');
+        const items = ['🌸', '🌷', '✨', '✦'];
+
+        function spawnPetal() {
+            const petalEl = document.createElement('div');
+            petalEl.classList.add('terminal-petal');
+            petalEl.innerText = items[Math.floor(Math.random() * items.length)];
+            petalEl.style.left = Math.random() * 100 + 'vw';
+            
+            const fallTime = Math.random() * 4 + 5; 
+            petalEl.style.animationDuration = fallTime + 's';
+            petalEl.style.fontSize = Math.random() * 6 + 10 + 'px';
+            
+            petalBox.appendChild(petalEl);
+
+            setTimeout(() => {
+                petalEl.remove();
+            }, fallTime * 1000);
+        }
+
+        // Memunculkan kelopak secara berkala setiap 600ms
+        setInterval(spawnPetal, 600);
+    </script>
 </body>
 </html>
-
