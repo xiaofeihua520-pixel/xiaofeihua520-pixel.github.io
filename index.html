@@ -1,0 +1,298 @@
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tristiana Dewi | Digital Financial Planner</title>
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <style>
+        :root {
+            --p-pink: #ffd6e8;
+            --p-purple: #e8dbff;
+            --p-mint: #d6fff1;
+            --d-dark: #3a2e3b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #fff3f8 0%, #f4ebff 50%, #ebfffa 100%);
+            color: var(--d-dark);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Lingkaran Gradasi Digital Glowing Besar di Background */
+        .bg-glow-1, .bg-glow-2, .bg-glow-3 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.6;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .bg-glow-1 { top: -100px; left: -100px; width: 500px; height: 500px; background: #ffb7dd; }
+        .bg-glow-2 { bottom: -100px; right: -100px; width: 500px; height: 500px; background: #bdfad9; }
+        .bg-glow-3 { top: 40%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: #e1ccff; }
+
+        /* Efek Partikel Pixel Bunga Digital */
+        .digital-petal {
+            position: fixed;
+            top: -20px;
+            pointer-events: none;
+            z-index: 10;
+            font-size: 16px;
+            animation: digitalFall linear infinite;
+        }
+
+        @keyframes digitalFall {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(105vh) rotate(180deg) scale(1.1); opacity: 0; }
+        }
+
+        /* Struktur Kontainer Utama (Lebih Lebar dan Penuh) */
+        .main-container {
+            max-w: 1000px;
+            margin: 60px auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glassmorphism Layout Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr 1.2fr;
+            }
+        }
+
+        .glass-box {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(220, 180, 210, 0.1), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Komponen Profil */
+        .avatar-badge {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+            animation: pulseGlow 3s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 10px 30px rgba(186, 235, 211, 0.6); transform: scale(1.03); }
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #4a3b4c;
+            font-size: 2.5rem;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #b589d6, #e387b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #615263;
+            margin: 0;
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7b5b8c;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Grid Layanan */
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .service-tag {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 214, 232, 0.4);
+            padding: 14px;
+            border-radius: 16px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #554457;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .service-tag:hover {
+            background: #fff;
+            border-color: #ffd6e8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        /* Sosmed Links */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.8);
+            color: #6a5370;
+            padding: 14px 20px;
+            border-radius: 18px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .social-btn .btn-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-btn i.fa-arrow-up-right-from-square, .social-btn i.fa-download {
+            font-size: 0.8rem;
+            opacity: 0.4;
+            transition: transform 0.3s ease;
+        }
+
+        .social-btn.cta-main {
+            background: linear-gradient(135deg, #ffd6e8 0%, #e8dbff 100%);
+            color: #60406e;
+            border: none;
+            box-shadow: 0 4px 15px rgba(232, 219, 255, 0.5);
+        }
+
+        .social-btn.cta-freebie {
+            background: linear-gradient(135deg, #e6fffa 0%, #d6fff1 100%);
+            color: #2d5749;
+            border: 1px solid rgba(189, 250, 217, 0.5);
+        }
+
+        .social-btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(156, 130, 166, 0.08);
+        }
+
+        .social-btn.cta-main:hover {
+            background: linear-gradient(135deg, #fbcfe8 0%, #ddd0f7 100%);
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+        }
+
+        .social-btn.cta-freebie:hover {
+            background: linear-gradient(135deg, #ccfff5 0%, #b3ffd6 100%);
+            box-shadow: 0 8px 20px rgba(189, 250, 217, 0.5);
+        }
+
+        .social-btn:hover i.fa-arrow-up-right-from-square { transform: translate(2px, -2px); opacity: 1; }
+        .social-btn:hover i.fa-download { transform: translateY(2px); opacity: 1; }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #a392a8;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lingkaran Gradasi Glow di Background -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+    <div class="bg-glow-3"></div>
+
+    <!-- Wadah Efek Kelopak Bunga Digital -->
+    <div id="digital-petal-container"></div>
+
+    <!-- Main Content Container -->
+    <div class="main-container">
+        <div class="grid-layout">
+            
+            <!-- Sisi Kiri: Profil & Deskripsi Utama -->
+            <div class="glass-box" style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="avatar-badge">🌸</div>
+                <h1>Tristiana Dewi</h1>
+                <div class="subtitle">Digital Financial Planner</div>
+                <p class="intro-text">
+                    Mari ubah kebiasaan finansialmu menjadi lebih sehat, teratur, dan bebas stres tanpa harus mengorbankan kebahagiaan hari ini. Bersama saya, wujudkan strategi cerdas untuk mengamankan aset finansial masa depanmu.
+                </p>
+            </div>
+
+            <!-- Sisi Kanan: Fokus Layanan & Semua Link Sosial Media -->
+            <div class="glass-box">
+                <!-- Bagian Fokus Layanan -->
+                <h3><i class="fa-solid fa-layer-group text-pink-400"></i> Fokus Layanan</h3>
+                <div class="service-grid">
+                    <div class="service-tag"><span>🩺</span> Cashflow</div>
+                    <div class="service-tag"><span>🕊️</span> Bebas Utang</div>
+                    <div class="service-tag"><span>🌼</span> Investasi</div>
+        <footer>
+            DIGITAL HUB &copy; 2026 TRISTIANA DEWI
+        </footer>
+    </div>
+</body>
+</html>
